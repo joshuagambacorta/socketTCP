@@ -19,7 +19,7 @@ public class ServerConnectionTCP {
         try {
             //apro una porta nel server socket (appena istanziato)
             sSocket = new ServerSocket(port);
-            System.out.println("In attesa di connessione");
+            System.out.println("In attesa di connessione...");
 
             //accetto la connessione
             socket = sSocket.accept();

@@ -2,7 +2,6 @@ package joshua.good.student;
 
 import java.io.IOException;
 import java.net.ConnectException;
-import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ClientConnectionTCP {
@@ -17,9 +16,11 @@ public class ClientConnectionTCP {
         try {
 
             socket = new Socket("127.0.0.1", port);
+            System.out.println("client connesso con il client: "+socket.getRemoteSocketAddress());
+            System.out.println("client connesso con la porta: "+socket.getLocalPort());
 
-        } catch (IOException e) {
-            System.err.println("Errore di I/O nell'istanza del server: "+e);
+        } catch (ConnectException e) {
+            System.err.println("Errore in connessione: "+e);
         } try {
                 socket.close();
             } catch (ConnectException e) {
