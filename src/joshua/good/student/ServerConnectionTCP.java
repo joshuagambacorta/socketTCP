@@ -15,7 +15,6 @@ public class ServerConnectionTCP {
         ServerSocket sSocket = null;
         //oggetto da usare per fare la connessione TCP
         Socket socket = null;
-
         try {
             //apro una porta nel server socket (appena istanziato)
             sSocket = new ServerSocket(port);
@@ -26,7 +25,7 @@ public class ServerConnectionTCP {
             System.out.println("Accettata la connessione: "+socket.getRemoteSocketAddress());
 
             //Scambio di dati
-            socket.getInputStream();
+            //socket.getInputStream();
         } catch (IOException e) {
             System.err.println("Errore di I/O nell'istanza del server: "+e);
         }

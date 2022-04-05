@@ -9,10 +9,8 @@ public class ClientConnectionTCP {
     public static void main(String[] args) throws IOException {
         //Porta del server maggiore di 1024
         int port = 2000;
-
         //oggetto da usare per fare la connessione TCP
         Socket socket = null;
-
         try {
 
             socket = new Socket("127.0.0.1", port);
@@ -21,11 +19,15 @@ public class ClientConnectionTCP {
 
         } catch (ConnectException e) {
             System.err.println("Errore in connessione: "+e);
-        } try {
+        }
+        finally {
+            try {
+                if (socket!=null)
                 socket.close();
             } catch (ConnectException e) {
                 System.err.println("Errore in chiusura: "+e);
             }
+        }
     }
 
 }
